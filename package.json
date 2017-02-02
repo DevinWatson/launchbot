@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/DevinWatson/launchbot#readme",
   "dependencies": {
+    "properties-reader": "0.0.15",
     "slack-node": "^0.1.8"
   }
 }
