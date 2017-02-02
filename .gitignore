@@ -1,3 +1,6 @@
+#Project Specific
+/resources/properties.ini
+
 # Logs
 logs
 *.log
