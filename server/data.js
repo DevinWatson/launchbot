@@ -1,37 +1,71 @@
 "use strict";
 
 var http = require('http');
-var https = require('https');
 var slackService = require('./slack');
-//Create a server
-var server = http.createServer(function (request, res) {
-    // Set CORS headers
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Request-Method', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-    res.setHeader('Access-Control-Allow-Headers', '*');
 
-    // console.log(slackService.sendMessage("Test"));
-    // response = slackService.sendMessage("Test");
-    test();
-    return res;
 
-});
-//Lets define a port we want to listen to
-const PORT = 8080;
-//Lets start our server
-server.listen(PORT, function () {
-    console.log("Server listening on: http://localhost:%s", PORT);
+function fetchMoreData(launchId){
+    var path = '/1.2/launch/'+launchId;
+    console.log(path)
 
-    console.log("Sending request to get new data")
-    // slackService.sendMessage("test");
-});
+    var options = {
+        host: 'launchlibrary.net',
+        path: path,
+        method: 'GET',
+        headers: {
+            "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Encoding": "gzip, deflate, sdch, br",
+            "Accept-Language": "en-US,en;q=0.8",
+            "Cache-Control":"no-cache",
+            "Connection":"keep-alive",
+            "Host":"launchlibrary.net",
+            "Pragma":"no-cache",
+            "Upgrade-Insecure-Requests":"1",
+            "User-Agent":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36"
+        }
+    };
 
-function test(){
+    http.get(options, (res) => {
+        const statusCode = res.statusCode;
+        const contentType = res.headers['content-type'];
 
+        let error;
+        if (statusCode !== 200) {
+            error = new Error(`Request Failed.\n` +
+                `Status Code: ${statusCode}`);
+        } else if (!/^application\/json/.test(contentType)) {
+            error = new Error(`Invalid content-type.\n` +
+                `Expected application/json but received ${contentType}`);
+        }
+        if (error) {
+            console.log(error.message);
+            // consume response data to free up memory
+            res.resume();
+            return;
+        }
+
+        res.setEncoding('utf8');
+        let rawData = '';
+        res.on('data', (chunk) => rawData += chunk);
+        res.on('end', () => {
+            try {
+                let parsedData = JSON.parse(rawData);
+                // for (var i = 0, len = parsedData.launches.length; i < len; i++) {
+                //     console.log("I: " + i + parsedData.launches[i].toString() + "\n");
+                // }
+                console.log(parsedData);
+            } catch (e) {
+                console.log(e.message);
+            }
+        });
+    }).on('error', (e) => {
+        console.log(`Got error: ${e.message}`);
+    });
+}
+
+function fetchBasicData(){
         var options = {
         host: 'launchlibrary.net',
-        // port: 80,
         path: '/1.2/launch',
         method: 'GET',
         headers: {
@@ -72,7 +106,11 @@ function test(){
         res.on('end', () => {
             try {
                 let parsedData = JSON.parse(rawData);
-                console.log(parsedData);
+                for (var i = 0, len = parsedData.launches.length; i < len; i++) {
+                    console.log(parsedData.launches[i].id + " \n")
+                    fetchMoreData(parsedData.launches[i].id)
+                }
+                // console.log(``);
             } catch (e) {
                 console.log(e.message);
             }
@@ -82,17 +120,4 @@ function test(){
     });
 }
 
-// function getData(callback) {
-//
-//     var req = http.request(options, function(res) {
-//         console.log(res.statusCode);
-//         res.on('data', function(d) {
-//             process.stdout.write(d);
-//         });
-//     });
-//     req.end();
-//
-//     req.on('error', function(e) {
-//         console.error(e);
-//     });
-// }
+fetchBasicData();
