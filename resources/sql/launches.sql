@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS launches;
 USE launches;
 
 CREATE TABLE IF NOT EXISTS `launches`.`launch` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL,
   `name` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `isostart` DATE COLLATE utf8_bin DEFAULT NULL,
   `isoend` DATE COLLATE utf8_bin DEFAULT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `launches`.`launch` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 CREATE TABLE IF NOT EXISTS `launches`.`location` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL,
   `name` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `infoURL` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `wikiURL` varchar(45) COLLATE utf8_bin DEFAULT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `launches`.`pad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 CREATE TABLE IF NOT EXISTS `launches`.`rocket` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL,
   `name` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `configuration` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `familyname` varchar(45) COLLATE utf8_bin DEFAULT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `launches`.`rocket` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 CREATE TABLE IF NOT EXISTS `launches`.`missions` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL,
   `name` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `description` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `type` int COLLATE utf8_bin DEFAULT NULL,

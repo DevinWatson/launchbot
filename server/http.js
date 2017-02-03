@@ -6,8 +6,6 @@ module.exports = {
     httpGet: function(path) {
         // Return a new promise.
         return new Promise(function(resolve, reject) {
-            console.log(path);
-
             var options = {
                 host: 'launchlibrary.net',
                 path: path,
@@ -38,7 +36,6 @@ module.exports = {
                         `Expected application/json but received ${contentType}`);
                 }
                 if (error) {
-                    console.log(error.message);
                     reject(Error(error));
                     return;
                 }
@@ -50,12 +47,10 @@ module.exports = {
                     try {
                         resolve(JSON.parse(rawData));
                     } catch (e) {
-                        console.log(e.message);
                         reject(Error(e));
                     }
                 });
             }).on('error', (e) => {
-                console.log(`Got error: ${e.message}`);
                 reject(Error(e));
             });
         });
