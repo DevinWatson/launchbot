@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `launches`.`launch` (
   `tbddate` tinyint DEFAULT NULL,
   `probability` tinyint DEFAULT NULL,
   `inhold` tinyint DEFAULT NULL,
-  `vidURLs` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `vidURLs` varchar(256) COLLATE utf8_bin DEFAULT NULL,
   `infoURLs` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `holdreason` varchar(45) COLLATE utf8_bin DEFAULT NULL,
   `failreason` varchar(45) COLLATE utf8_bin DEFAULT NULL,

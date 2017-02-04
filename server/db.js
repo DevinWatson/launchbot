@@ -23,7 +23,10 @@ con.connect(function (err) {
 module.exports = {
     saveLaunch: function (launch) {
         con.query('INSERT INTO launches.launch SET ?', parselaunch(launch), function (err, res) {
-            if (err) throw err;
+            if (err) {
+                console.log(err);
+                throw err;
+            }
 
             console.log('Last insert ID:', res.insertId);
         });
