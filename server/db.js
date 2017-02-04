@@ -24,11 +24,18 @@ module.exports = {
     saveLaunch: function (launch) {
         con.query('INSERT INTO launches.launch SET ?', parselaunch(launch), function (err, res) {
             if (err) {
-                console.log(err);
-                throw err;
+                if ("ER_DUP_ENTRY" === err.code) {
+                    con.query('REPLACE INTO launches.launch SET ?', parselaunch(launch), function (err, res) {
+                        if (err)throw err;
+                        console.log('UPDATED ID:', res.insertId);
+                    });
+                } else {
+                    console.log(err);
+                    throw err;
+                }
+            } else {
+                console.log('Last insert ID:', res.insertId);
             }
-
-            console.log('Last insert ID:', res.insertId);
         });
     }
 
