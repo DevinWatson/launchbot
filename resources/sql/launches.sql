@@ -4,10 +4,10 @@ USE launches;
 
 CREATE TABLE IF NOT EXISTS `launches`.`launch` (
   `id` int NOT NULL,
-  `name` varchar(45) COLLATE utf8_bin DEFAULT NULL,
-  `isostart` DATE COLLATE utf8_bin DEFAULT NULL,
-  `isoend` DATE COLLATE utf8_bin DEFAULT NULL,
-  `isonet` DATE COLLATE utf8_bin DEFAULT NULL,
+  `name` varchar(256) COLLATE utf8_bin DEFAULT NULL,
+  `isostart` DATETIME COLLATE utf8_bin DEFAULT NULL,
+  `isoend` DATETIME COLLATE utf8_bin DEFAULT NULL,
+  `isonet` DATETIME COLLATE utf8_bin DEFAULT NULL,
   `status` tinyint DEFAULT NULL,
   `tbddate` tinyint DEFAULT NULL,
   `probability` tinyint DEFAULT NULL,
