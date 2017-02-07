@@ -1,7 +1,7 @@
-var Slack = require('slack-node');
+const Slack = require('slack-node');
 
-var PropertiesReader = require('properties-reader');
-var properties = PropertiesReader('../resources/properties.ini');
+const PropertiesReader = require('properties-reader');
+const properties = PropertiesReader('../resources/properties.ini');
 webhookUri = properties.get('main.slack.webhook.uri');
 
 slack = new Slack();

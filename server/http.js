@@ -1,12 +1,12 @@
 "use strict";
-var http = require('http');
+const http = require('http');
 
 
 module.exports = {
     httpGet: function(path) {
         // Return a new promise.
         return new Promise(function(resolve, reject) {
-            var options = {
+            let options = {
                 host: 'launchlibrary.net',
                 path: path,
                 method: 'GET',
@@ -55,4 +55,4 @@ module.exports = {
             });
         });
     }
-}
+};

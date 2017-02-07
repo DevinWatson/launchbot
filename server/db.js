@@ -1,12 +1,12 @@
-var mysql = require("mysql");
+const mysql = require("mysql");
 
-var PropertiesReader = require('properties-reader');
-var properties = PropertiesReader('../resources/properties.ini');
-userName = properties.get('main.mysql.db.user.name');
-password = properties.get('main.mysql.db.password');
-hostIn = properties.get('main.mysql.db.host');
+const PropertiesReader = require('properties-reader');
+const properties = PropertiesReader('../resources/properties.ini');
+const userName = properties.get('main.mysql.db.user.name');
+const password = properties.get('main.mysql.db.password');
+const hostIn = properties.get('main.mysql.db.host');
 
-var con = mysql.createConnection({
+const con = mysql.createConnection({
     host: hostIn,
     user: userName,
     password: password
@@ -39,7 +39,7 @@ module.exports = {
         });
     }
 
-}
+};
 
 function STR_TO_DATE(dateString) {
     return new Date(dateString).toISOString().substring(0, 19).replace('T', ' ');

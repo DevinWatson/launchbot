@@ -1,7 +1,7 @@
 
-var db = require('./db');
-var http = require('./http');
-var basePath = "/1.2/launch";
+const db = require('./db');
+const http = require('./http');
+const basePath = "/1.2/launch";
 
 function fetchAndSaveLaunchData(path) {
     return http.httpGet(path).then(function (response) {

@@ -1,8 +1,8 @@
 "use strict";
 
-var http = require('http');
+const http = require('http');
 //Create a server
-var server = http.createServer(function (request, res) {
+const server = http.createServer(function (request, res) {
     // Set CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Request-Method', '*');
