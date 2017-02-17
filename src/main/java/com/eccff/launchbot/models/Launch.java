@@ -21,7 +21,6 @@ public class Launch {
     private int id;
     private String name;
     private String net;
-
     private boolean tbddate;
     private boolean tbdtime;
     private int status;
