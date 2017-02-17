@@ -20,7 +20,7 @@ public class Mission {
     private int type;
     private String wikiURL;
     private List<String> infoURLs;
-    private List<Object> agencies;
+    private List<Agency> agencies;
     private List<MissionEvent> events;
 
 }

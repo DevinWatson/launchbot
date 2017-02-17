@@ -21,7 +21,7 @@ public class Pad {
     private String mapURL;
     private boolean retired;
     private int locationid;
-    private List<Object> agencies;
+    private List<Agency> agencies;
     private String wikiURL;
     private List<String> infoURLs;
 

@@ -36,8 +36,8 @@ public class Launch {
     private String failreason;
     private int probability;
     private String hashtag;
-    private List<Object> location;
+    private List<Location> location;
     private Object rocket;
-    private List<Object> missions;
+    private List<Mission> missions;
 
 }

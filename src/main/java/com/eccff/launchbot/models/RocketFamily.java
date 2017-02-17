@@ -15,6 +15,6 @@ public class RocketFamily {
     @Id
     private int id;
     private String name;
-    private List<Object> agencies;
+    private List<Agency> agencies;
 
 }
