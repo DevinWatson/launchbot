@@ -21,6 +21,6 @@ public class Mission {
     private String wikiURL;
     private List<String> infoURLs;
     private List<Object> agencies;
-    private List<Object> events;
+    private List<MissionEvent> events;
 
 }
