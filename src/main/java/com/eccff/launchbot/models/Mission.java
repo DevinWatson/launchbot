@@ -7,11 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.List;
 
+/**
+ * https://launchlibrary.net/1.2/mission
+ */
+
 @Data
 @Entity
 @Builder
 public class Mission {
-
     @Id
     private int id;
     private String name;
