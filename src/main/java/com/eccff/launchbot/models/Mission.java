@@ -7,11 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.List;
 
+/**
+ * https://launchlibrary.net/1.2/mission
+ */
+
 @Data
 @Entity
 @Builder
 public class Mission {
-
     @Id
     private int id;
     private String name;
@@ -20,7 +23,7 @@ public class Mission {
     private int type;
     private String wikiURL;
     private List<String> infoURLs;
-    private List<Object> agencies;
+    private List<Agency> agencies;
     private List<MissionEvent> events;
 
 }
