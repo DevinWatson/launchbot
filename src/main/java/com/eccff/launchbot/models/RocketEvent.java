@@ -6,6 +6,10 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * https://launchlibrary.net/1.2/rocketevent
+ */
+
 @Data
 @Entity
 @Builder

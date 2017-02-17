@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.List;
 
+/**
+ * https://launchlibrary.net/1.2/location
+ */
+
 @Data
 @Entity
 @Builder
