@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.List;
 
 @Data
 @Entity
@@ -12,14 +13,14 @@ import javax.persistence.Id;
 public class Mission {
 
     @Id
-    private Long id;
+    private int id;
     private String name;
     private String description;
-    private String launch;
-    private String type;
+    private int launch;
+    private int type;
     private String wikiURL;
-    private String infoURLs;
-    private String agencies;
-    private String events;
+    private List<String> infoURLs;
+    private List<Object> agencies;
+    private List<Object> events;
 
 }
