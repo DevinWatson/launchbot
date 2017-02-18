@@ -2,10 +2,10 @@ package com.eccff.launchbot.models;
 
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import java.util.List;
 
 /**
@@ -21,6 +21,7 @@ public class Agency {
     private String name;
     private String abbrev;
     private int type;
+    @Column(length=512) // Necessary for potential long list of country codes
     private String countryCode;
     private String wikiURL;
     @ElementCollection(targetClass=String.class)

@@ -1,6 +1,5 @@
 package com.eccff.launchbot.models;
 
-import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.ElementCollection;
