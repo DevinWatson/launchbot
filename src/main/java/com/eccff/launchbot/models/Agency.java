@@ -1,10 +1,11 @@
 package com.eccff.launchbot.models;
 
-import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 /**
@@ -13,7 +14,6 @@ import java.util.List;
 
 @Data
 @Entity
-@Builder
 public class Agency {
 
     @Id
@@ -23,6 +23,7 @@ public class Agency {
     private int type;
     private String countryCode;
     private String wikiURL;
+    @ElementCollection(targetClass=String.class)
     private List<String> infoURLs;
 
 }

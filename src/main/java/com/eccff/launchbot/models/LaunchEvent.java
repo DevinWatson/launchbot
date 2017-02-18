@@ -12,7 +12,6 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-@Builder
 public class LaunchEvent {
 
     @Id

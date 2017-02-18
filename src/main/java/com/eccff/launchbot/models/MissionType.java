@@ -12,7 +12,6 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-@Builder
 public class MissionType {
 
     @Id
