@@ -3,6 +3,7 @@ package com.eccff.launchbot.models;
 import lombok.Builder;
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,6 +24,7 @@ public class Pad {
     private int padType;
     private String latitude;
     private String longitude;
+    @Column(length=512)
     private String mapURL;
     private boolean retired;
     private int locationid;

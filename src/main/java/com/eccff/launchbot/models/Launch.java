@@ -1,5 +1,8 @@
 package com.eccff.launchbot.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import lombok.Builder;
 import lombok.Data;
 
@@ -41,8 +44,9 @@ public class Launch {
     private String failreason;
     private int probability;
     private String hashtag;
-    @ElementCollection(targetClass=Pad.class)
-    private List<Pad> location;
+//    @ElementCollection(targetClass=Pad.class)
+    @OneToOne
+    private Location location;
     @OneToOne
     private Rocket rocket;
     @ElementCollection(targetClass=Mission.class)

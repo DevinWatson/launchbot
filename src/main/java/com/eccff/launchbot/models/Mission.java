@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.util.List;
 
 /**
@@ -21,7 +22,8 @@ public class Mission {
     private int id;
     private String name;
     private String description;
-    private int launch;
+    @OneToOne
+    private Launch launch;
     private int type;
     private String wikiURL;
     @ElementCollection(targetClass=String.class)

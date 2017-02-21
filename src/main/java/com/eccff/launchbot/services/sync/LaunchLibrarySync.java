@@ -49,17 +49,17 @@ public class LaunchLibrarySync {
     ObjectMapper objectMapper;
 
     public void sync() {
+        syncLocations(0);
         syncAgencies(0);
         syncAgencyTypes(0);
         syncEventTypes(0);
-        syncLaunches(0);
-        syncLaunchStatuses(0);
-        syncLocations(0);
-        syncMissions(0);
-        syncMissionTypes(0);
         syncPads(0);
         syncRocketFamilies(0);
         syncRockets(0);
+        syncLaunches(0);
+        syncLaunchStatuses(0);
+        syncMissions(0);
+        syncMissionTypes(0);
     }
 
     private void syncAgencies(int offset) {
