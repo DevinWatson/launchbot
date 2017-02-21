@@ -27,9 +27,9 @@ public class Launch {
     private int status;
     private String windowstart;
     private String windowend;
-    private Date isostart;
-    private Date isoend;
-    private Date isonet;
+    private String isostart;
+    private String isoend;
+    private String isonet;
     private int wsstamp;
     private int westamp;
     private int netstamp;
@@ -41,8 +41,8 @@ public class Launch {
     private String failreason;
     private int probability;
     private String hashtag;
-    @ElementCollection(targetClass=Location.class)
-    private List<Location> location;
+    @ElementCollection(targetClass=Pad.class)
+    private List<Pad> location;
     @OneToOne
     private Rocket rocket;
     @ElementCollection(targetClass=Mission.class)
